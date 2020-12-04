@@ -1,0 +1,27 @@
+specVersion: 0.0.2
+description: Storj for Ethereum
+repository: https://github.com/adorid/storj-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: Storj
+    network: mainnet
+    source:
+      address: '0xb64ef51c888972c908cfacf59b47c1afbc0ab8ac'
+      abi: Storj
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.3
+      language: wasm/assemblyscript
+      entities:
+        - Storj
+      abis:
+        - name: Storj
+          file: ./abis/Storj.json
+      eventHandlers:
+        - event: NewStorj(uint256,address,string,string)
+          handler: handleNewStorj
+        - event: UpdatedStorj(uint256,address,string,string)
+          handler: handleUpdatedStorj
+      file: ./src/mapping.ts
