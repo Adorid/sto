@@ -1,4 +1,4 @@
-import { NewStorj, UpdatedStorj } from '../generated/Gravity/Gravity'
+import { NewStorj, UpdatedStorj } from '../generated/Storj/Storj'
 import { Storj } from '../generated/schema'
 
 export function handleNewStorj(event: NewStorj): void {
